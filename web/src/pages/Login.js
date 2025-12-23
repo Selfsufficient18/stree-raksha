@@ -19,11 +19,12 @@ function Login() {
           password,
         }
       );
+      const data = res.data;
 
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("role", res.data.user.role);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("role", data.user.role);
 
-      if (res.data.user.role === "rakshak") {
+      if (data.user.role === "rakshak") {
         window.location.href = "/rakshak";
       } else {
         window.location.href = "/dashboard";
